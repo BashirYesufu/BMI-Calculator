@@ -71,11 +71,11 @@ class _InputPageState extends State<InputPage> {
               children: [
                 ReusableCard(
                   colour: activeCardColor,
-                  cardChild: DescriptionContent(),
-
+                  cardChild: DescriptionContent(text: 'WEIGHT', number: '60', ),
                 ),
                 ReusableCard(
                   colour: activeCardColor,
+                  cardChild:  DescriptionContent(text: 'AGE', number: '25',),
                 ),
               ],
             ),

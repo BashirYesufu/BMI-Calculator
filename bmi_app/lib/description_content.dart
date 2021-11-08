@@ -3,17 +3,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 
 class DescriptionContent extends StatelessWidget {
-  const DescriptionContent({
-    Key? key,
-  }) : super(key: key);
+
+  final String text;
+  final String number;
+
+  const DescriptionContent({Key? key, required this.text, required this.number}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('WEIGHT', style: labelTextStyle,),
-        Text('87', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60.0),),
+        Text(text, style: labelTextStyle,),
+        Text(number, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60.0),),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
