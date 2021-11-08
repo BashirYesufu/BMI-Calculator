@@ -17,7 +17,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI CALCULATOR'),
+        title: Text('BMI CALCULATOR'),
       ),
       body: Column(
         children: [
@@ -26,11 +26,11 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   ReusableCard(
                     colour: activeCardColor,
-                    cardChild: IconContent(),
+                    cardChild: IconContent(icon: FontAwesomeIcons.mars, text: 'MALE',),
                   ),
                   ReusableCard(
                     colour: activeCardColor,
-                    cardChild: Text(''),
+                    cardChild: IconContent(icon: FontAwesomeIcons.venus, text: 'FEMALE',),
                   ),
                 ],
               ),
@@ -40,14 +40,13 @@ class _InputPageState extends State<InputPage> {
 
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 ReusableCard(
                   colour: activeCardColor,
-                  cardChild: Text(''),
+
                 ),
                 ReusableCard(
                   colour: activeCardColor,
-                  cardChild: Text(''),
                 ),
               ],
             ),
@@ -55,7 +54,7 @@ class _InputPageState extends State<InputPage> {
 
           Container(
             color: bottomContainerColor,
-            margin: const EdgeInsets.only(top: 10.0),
+            margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: bottomContainerHeight,
           ),
@@ -66,20 +65,22 @@ class _InputPageState extends State<InputPage> {
 }
 
 class IconContent extends StatelessWidget {
-  const IconContent({Key? key,}) : super(key: key);
+  final IconData icon;
+  final String text;
+  const IconContent({Key? key, required this.icon, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Icon(
-          FontAwesomeIcons.mars,
+          icon,
           size: 80.0,
         ),
         SizedBox(height: 10.0,),
         Text(
-          'MALE',
+          text,
           style: TextStyle(
             color: Color(0xFF8D8E98),
             fontSize: 18.0,
@@ -93,15 +94,15 @@ class IconContent extends StatelessWidget {
 class ReusableCard extends StatelessWidget {
 
   final Color colour;
-  final Widget cardChild;
-  const ReusableCard({Key? key, required this.colour, required this.cardChild}) : super(key: key);
+  final Widget? cardChild;
+  const ReusableCard({Key? key, required this.colour, this.cardChild}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        child: cardChild,
-        margin: const EdgeInsets.all(15.0),
+        child: cardChild ?? SizedBox(),
+        margin: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           color: colour,
           borderRadius: BorderRadius.circular(10.0),
