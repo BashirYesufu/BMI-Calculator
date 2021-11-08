@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
+import 'description_content.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
@@ -44,10 +45,7 @@ class _InputPageState extends State<InputPage> {
             cardChild: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'HEIGHT',
-                  style: TextStyle(color: Color(0xFF8D8E98), fontSize: 18.0,),
-                ),
+                Text('HEIGHT', style: labelTextStyle,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -73,6 +71,7 @@ class _InputPageState extends State<InputPage> {
               children: [
                 ReusableCard(
                   colour: activeCardColor,
+                  cardChild: DescriptionContent(),
 
                 ),
                 ReusableCard(
@@ -93,3 +92,4 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
