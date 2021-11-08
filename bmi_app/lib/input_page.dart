@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -36,7 +37,26 @@ class _InputPageState extends State<InputPage> {
               ),
           ),
 
-          const ReusableCard(colour: activeCardColor, cardChild: Text(''),),
+          ReusableCard(
+            colour: activeCardColor,
+            cardChild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'HEIGHT',
+                  style: TextStyle(color: Color(0xFF8D8E98), fontSize: 18.0,),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('150', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0),),
+                    Text('cm')
+                  ],
+                ),
+
+              ],
+            ),
+          ),
 
           Expanded(
             child: Row(
@@ -78,7 +98,7 @@ class IconContent extends StatelessWidget {
           icon,
           size: 80.0,
         ),
-        SizedBox(height: 10.0,),
+        SizedBox(height: 15.0,),
         Text(
           text,
           style: TextStyle(
@@ -101,7 +121,7 @@ class ReusableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        child: cardChild ?? SizedBox(),
+        child: cardChild,
         margin: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           color: colour,
