@@ -50,12 +50,20 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text('150', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0),),
+                    Text('150', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60.0),),
                     Text('cm')
                   ],
                 ),
-
+                Slider(
+                  onChanged: (double value) {  },
+                  value: 100,
+                  min: 0,
+                  max: 200,
+                  activeColor: bottomContainerColor,
+                  inactiveColor: Color(0xFF8D8E98),
+                ),
               ],
             ),
           ),
