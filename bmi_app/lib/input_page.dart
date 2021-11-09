@@ -28,54 +28,67 @@ class _InputPageState extends State<InputPage> {
           Expanded(
               child: Row(
                 children: [
-                  ReusableCard(
-                    colour: activeCardColor,
-                    cardChild: IconContent(icon: FontAwesomeIcons.mars, text: 'MALE',),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () { print('Male'); },
+                      child: ReusableCard(
+                        colour: activeCardColor,
+                        cardChild: IconContent(icon: FontAwesomeIcons.mars, text: 'MALE',),
+                      ),
+                    ),
                   ),
-                  ReusableCard(
-                    colour: activeCardColor,
-                    cardChild: IconContent(icon: FontAwesomeIcons.venus, text: 'FEMALE',),
+                  Expanded(
+                    child: ReusableCard(
+                      colour: activeCardColor,
+                      cardChild: IconContent(icon: FontAwesomeIcons.venus, text: 'FEMALE',),
+                    ),
                   ),
                 ],
               ),
           ),
 
-          ReusableCard(
-            colour: activeCardColor,
-            cardChild: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('HEIGHT', style: labelTextStyle,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text('150', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60.0),),
-                    Text('cm')
-                  ],
-                ),
-                Slider(
-                  onChanged: (double value) {  },
-                  value: 100,
-                  min: 0,
-                  max: 200,
-                  activeColor: bottomContainerColor,
-                  inactiveColor: Color(0xFF8D8E98),
-                ),
-              ],
+          Expanded(
+            child: ReusableCard(
+              colour: activeCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('HEIGHT', style: labelTextStyle,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text('150', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60.0),),
+                      Text('cm')
+                    ],
+                  ),
+                  Slider(
+                    onChanged: (double value) {  },
+                    value: 100,
+                    min: 0,
+                    max: 200,
+                    activeColor: bottomContainerColor,
+                    inactiveColor: Color(0xFF8D8E98),
+                  ),
+                ],
+              ),
             ),
           ),
 
           Expanded(
             child: Row(
               children: [
-                ReusableCard(
-                  colour: activeCardColor,
-                  cardChild: DescriptionContent(text: 'WEIGHT', number: '60', ),
+                Expanded(
+                  child: ReusableCard(
+                    colour: activeCardColor,
+                    cardChild: DescriptionContent(text: 'WEIGHT', number: '60', ),
+                  ),
                 ),
-                ReusableCard(
-                  colour: activeCardColor,
-                  cardChild:  DescriptionContent(text: 'AGE', number: '25',),
+                Expanded(
+                  child: ReusableCard(
+                    colour: activeCardColor,
+                    cardChild:  DescriptionContent(text: 'AGE', number: '25',),
+                  ),
                 ),
               ],
             ),
