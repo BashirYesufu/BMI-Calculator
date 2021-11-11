@@ -14,3 +14,8 @@ const kBoldTextStyle = TextStyle(
     fontWeight: FontWeight.w900,
     fontSize: 50.0,
 );
+
+const kLargeButtonText = TextStyle(
+    fontSize: 25.0,
+    fontWeight: FontWeight.bold
+);
