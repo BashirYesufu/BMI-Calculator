@@ -6,9 +6,15 @@ class DescriptionContent extends StatelessWidget {
 
   final String text;
   final String number;
+  final Function() minusAction;
+  final Function() plusAction;
   final Decoration? decor = ShapeDecoration(shape: CircleBorder(), color: Colors.grey,);
 
-  DescriptionContent({Key? key, required this.text, required this.number}) : super(key: key);
+  DescriptionContent({Key? key,
+    required this.text,
+    required this.number,
+    required this.minusAction,
+    required this.plusAction, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +26,44 @@ class DescriptionContent extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              decoration: decor,
-              padding: EdgeInsets.all(10.0),
-              child: Icon(FontAwesomeIcons.minus),
-            ),
-            SizedBox(width: 30.0,),
-            Container(
-              decoration: ShapeDecoration(
-                shape: CircleBorder(),
-                color: Colors.grey,
-              ),
-              padding: EdgeInsets.all(10.0),
-              child: Icon(FontAwesomeIcons.plus),
-            ),
-          ],
-        ),
 
+            RoundIconButton(
+              child: FontAwesomeIcons.minus,
+              onPressed: minusAction,
+            ),
+
+            SizedBox(width: 30.0,),
+
+            RoundIconButton(
+              child: FontAwesomeIcons.plus,
+              onPressed: plusAction,
+            ),
+
+          ],
+        ), 
       ],
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+
+  final IconData child;
+  final Function() onPressed;
+  const RoundIconButton({Key? key, required this.child, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      fillColor: Color(0xFF4C4F5E),
+      elevation: 6.0,
+      shape: CircleBorder(),
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      child: Icon(child),
     );
   }
 }

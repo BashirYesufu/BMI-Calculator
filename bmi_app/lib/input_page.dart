@@ -24,6 +24,8 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.nonBinary;
 
   int height = 180;
+  int weight = 60;
+  int age = 12;
 
   @override
   Widget build(BuildContext context) {
@@ -115,14 +117,37 @@ class _InputPageState extends State<InputPage> {
                   child: ReusableCard(
                     onPress: () {},
                     colour: kActiveCardColor,
-                    cardChild: DescriptionContent(text: 'WEIGHT', number: '60', ),
+                    cardChild: DescriptionContent(
+                      text: 'WEIGHT',
+                      number: weight.toString(),
+                      minusAction: () {
+                        setState(() {
+                          weight--;
+                        });
+                      }, plusAction: () {
+                        setState(() {
+                          weight++;
+                        });
+                    },
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
                     colour: kActiveCardColor,
-                    cardChild:  DescriptionContent(text: 'AGE', number: '25',),
+                    cardChild:  DescriptionContent(
+                      text: 'AGE',
+                      number: '$age',
+                      minusAction: () {
+                        setState(() {
+                          age--;
+                        });
+                      }, plusAction: () {
+                        setState(() {
+                          age++;
+                        });
+                    },),
                   ),
                 ),
               ],
