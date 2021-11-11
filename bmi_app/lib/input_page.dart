@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'bottom_button.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
 import 'icon_content.dart';
@@ -156,27 +157,16 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
 
-          GestureDetector(
+          BottomButton(
+            buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(),),);
             },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'CALCULATE',
-                  style: kLargeButtonText,
-                ),
-              ),
-              color: kBottomContainerColor,
-              margin: EdgeInsets.only(top: 10.0),
-              padding: EdgeInsets.only(bottom: 20.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-            ),
           ),
         ],
       ),
     );
   }
 }
+
 
