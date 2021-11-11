@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
+import 'constants.dart';
 
 class DescriptionContent extends StatelessWidget {
 
@@ -15,8 +15,8 @@ class DescriptionContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(text, style: labelTextStyle,),
-        Text(number, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60.0),),
+        Text(text, style: kLabelTextStyle,),
+        Text(number, style: kBoldTextStyle,),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
