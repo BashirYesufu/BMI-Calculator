@@ -1,8 +1,8 @@
 import 'package:bmi_app/constants.dart';
-import 'package:bmi_app/reusable_card.dart';
+import 'package:bmi_app/components/reusable_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'bottom_button.dart';
+import '../components/bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -17,10 +17,15 @@ class ResultPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+
           Expanded(
-            child: Text(
-              'Your Result',
-              style: kTitleTextStyle,
+            child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment:  Alignment.bottomLeft,
+              child: Text(
+                'Your Result',
+                style: kTitleTextStyle,
+              ),
             ),
           ),
 
@@ -54,7 +59,12 @@ class ResultPage extends StatelessWidget {
             ),
           ),
 
-          BottomButton(buttonTitle: 'see', onTap: () {},),
+          BottomButton(
+            buttonTitle: 'RE-CALCULATE',
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
 
         ],
       ),
